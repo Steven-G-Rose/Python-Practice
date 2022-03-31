@@ -21,8 +21,8 @@ while True:
     dura = int(input("Event duration (minutes): "))
     
 #Calculate
-    #Break down duration into hours perform addition
-    end_hour = (hour + (dura / 60))
+    #Break down duration into hours perform addition and keeps it within the limits of 24 hours
+    end_hour = (hour + (dura / 60)) % 24
     #Fixes rounding issues when mins + dura < 60
     if (mins + dura) < 60:
         end_hour -= 0.1
