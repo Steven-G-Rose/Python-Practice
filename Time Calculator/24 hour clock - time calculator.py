@@ -23,6 +23,9 @@ while True:
 #Calculate
     #Break down duration into hours perform addition
     end_hour = (hour + (dura / 60))
+    #Fixes rounding issues when mins + dura < 60
+    if (mins + dura) < 60:
+        end_hour -= 0.1
     #Add minutes and duration modulo 60 to keep within limits of hour
     end_mins = (mins + dura) % 60
     
