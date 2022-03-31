@@ -25,8 +25,43 @@ After much trial and error, I created the following code to subtract 0.1 from en
  
  But wait...remember earlier when I mentioned the modulus on the end_hour variable?
  
- I noticed that when I would enter large numbers for the dura variable that my end_hour variable would reach over 24 which doesn't make sense due to the fact that there are only 24 hours in a day! This was forunately a quick fix. I threw a "% 24" at the end of my end_hour variable declaration and that fixed that issue as well.
+ I noticed that when I would enter large numbers for the dura variable that my end_hour variable would reach over 24 which doesn't make sense due to the fact that there are only 24 hours in a day! This was fortunately a quick fix. I threw a "% 24" at the end of my end_hour variable declaration and that fixed that issue as well.
  
-With the "meat" of the program done, I started spicing it up a little bit. I Googled around and discovered "while loops" which led me to put my calculations in a loop and ask the user if they would like to enter another one. I also experimented with "if else" statements to create the logic for asking if the user wants to repeat the program or close it out.
+With the "meat" of the program done, I started spicing it up a little bit. I Googled around and discovered "while loops" which led me to put my calculations in a loop and ask the user if they would like to enter another one. I cleaned up the results and discovered the zfill function to ensure that the minutes place always has two  digits. I also experimented with "if else" statements to create the logic for asking if the user wants to repeat the program or close it out.
 
 Overall, I went above and beyond what the lab asked for, but I'm sure glad I spent so much time doing so because it led to a fun and organic learning experience. It taught me so much about Python in general and really made me realize that I have a passion for programming that I didn't even know I had!
+
+Here is some test data from the lab to input yourself if you'd like:
+
+
+Sample input:
+
+12
+
+17
+
+59
+
+Expected output: 13:16
+
+
+Sample input:
+
+23
+
+58
+
+642
+
+Expected output: 10:40
+
+
+Sample input:
+
+0
+
+1
+
+2939
+
+Expected output: 1:0
