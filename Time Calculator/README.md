@@ -31,6 +31,8 @@ With the "meat" of the program done, I started spicing it up a little bit. I Goo
 
 Overall, I went above and beyond what the lab asked for, but I'm sure glad I spent so much time doing so because it led to a fun and organic learning experience. It taught me so much about Python in general and really made me realize that I have a passion for programming that I didn't even know I had!
 
+Note that this program does not include any error handling yet as it is something I have not covered in my studies yet.
+
 Here is some test data from the lab to input yourself if you'd like:
 
 
