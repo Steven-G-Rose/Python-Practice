@@ -1,4 +1,5 @@
 The following code was provided to start the lab:
+
     # step 1
     print("Step 1:", beatles)
 
