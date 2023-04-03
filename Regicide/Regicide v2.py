@@ -1,6 +1,6 @@
 import random
 
-#This variable is used later on in main loop.
+#These variables are used later on in main loop.
 discard_selection = 0
 card_attack = 0
 
@@ -71,76 +71,39 @@ while hand > 0:
     user_selection = int(input("Enter card to play: "))
     played_card = player[user_selection - 1]
 
-#Logic for Spade cards.
+    #Logic for player cards.
+    if "A" in played_card:
+        card_attack = 1  
+    if "2" in played_card:
+        card_attack = 2
+    if "3" in played_card:
+        card_attack = 3
+    if "4" in played_card:
+        card_attack = 4
+    if "5" in played_card:
+        card_attack = 5
+    if "6" in played_card:
+        card_attack = 6
+    if "7" in played_card:
+        card_attack = 7
+    if "8" in played_card:
+        card_attack = 8
+    if "9" in played_card:
+        card_attack = 9
+    if "10" in played_card:
+        card_attack = 10
+    if "Jack" in played_card:
+        card_attack = 10
+    if "Queen" in played_card:
+        card_attack = 15
+    if "King" in played_card:
+        card_attack = 20
+
     if "Spades" in played_card:
-        if "A" in played_card:
-            boss_hp -= 1
-            boss_attack -= 1
-        elif "2" in played_card:
-            boss_hp -= 2
-            boss_attack -= 2
-        elif "3" in played_card:
-            boss_hp -= 3
-            boss_attack -= 3
-        elif "4" in played_card:
-            boss_hp -= 4
-            boss_attack -= 4
-        elif "5" in played_card:
-            boss_hp -= 5
-            boss_attack -= 5
-        elif "6" in played_card:
-            boss_hp -= 6
-            boss_attack -= 6
-        elif "7" in played_card:
-            boss_hp -= 7
-            boss_attack -= 7
-        elif "8" in played_card:
-            boss_hp -= 8
-            boss_attack -= 8
-        elif "9" in played_card:
-            boss_hp -= 9
-            boss_attack -= 9
-        elif "10" in played_card:
-            boss_hp -= 10
-            boss_attack -= 10
-        elif "Jack" in played_card:
-            boss_hp -= 10
-            boss_attack -= 10
-        elif "Queen" in played_card:
-            boss_hp -= 15
-            boss_attack -= 15
-        elif "King" in played_card:
-            boss_hp -= 20
-            boss_attack -= 20
-            
-#Logic for Clubs cards.
+            boss_hp -= card_attack
+            boss_attack -= card_attack
     if "Clubs" in played_card:
-        if "A" in played_card:
-            boss_hp -= 1 * 2
-        elif "2" in played_card:
-            boss_hp -= 2 * 2
-        elif "3" in played_card:
-            boss_hp -= 3 * 2
-        elif "4" in played_card:
-            boss_hp -= 4 * 2
-        elif "5" in played_card:
-            boss_hp -= 5 * 2
-        elif "6" in played_card:
-            boss_hp -= 6 * 2
-        elif "7" in played_card:
-            boss_hp -= 7 * 2
-        elif "8" in played_card:
-            boss_hp -= 8 * 2
-        elif "9" in played_card:
-            boss_hp -= 9 * 2
-        elif "10" in played_card:
-            boss_hp -= 10 * 2
-        elif "Jack" in played_card:
-            boss_hp -= 10 * 2
-        elif "Queen" in played_card:
-            boss_hp -= 15 * 2
-        elif "King" in played_card:
-            boss_hp -= 20 * 2
+            boss_hp -= card_attack * 2
 
     print("You have played: " + str(played_card))
     player.pop(user_selection - 1)
@@ -148,17 +111,17 @@ while hand > 0:
     
     print("Boss does " + str(boss_attack) + " damage.")
 
-    while discard_selection < boss_attack:
-        print("Choose which card to discard to take damage.")
-        card = 0
-        while card != hand:
-            #The +1 here is to make it easier to read (so that cards 1 through 8 aren't printed as 0 through 7)
-            print(str(card + 1) + ":" + str(player[card]))
-            card += 1
-        discard_selection = int(input())
-        discard.append(player[discard_selection])
-        player.pop(discard_selection - 1)
-        hand -= 1
+##    while discard_selection < boss_attack:
+##        print("Choose which card to discard to take damage.")
+##        card = 0
+##        while card != hand:
+##            #The +1 here is to make it easier to read (so that cards 1 through 8 aren't printed as 0 through 7)
+##            print(str(card + 1) + ":" + str(player[card]))
+##            card += 1
+##        discard_selection = int(input())
+##        discard.append(player[discard_selection])
+##        player.pop(discard_selection - 1)
+##        hand -= 1
 
     print("Tavern deck: " + str(len(tavern)))
     print("Discard pile: " + str(len(discard)))
