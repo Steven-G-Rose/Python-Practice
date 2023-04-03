@@ -3,6 +3,7 @@ import random
 #These variables are used later on in main loop.
 discard_selection = 0
 card_attack = 0
+discard_value = 0
 
 #These arrays create the deck of cards that player will pull from
 suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
@@ -100,31 +101,65 @@ while hand > 0:
         card_attack = 20
 
     if "Spades" in played_card:
-            boss_hp -= card_attack
-            boss_attack -= card_attack
+        boss_hp -= card_attack
+        boss_attack -= card_attack
     if "Clubs" in played_card:
-            boss_hp -= card_attack * 2
+        boss_hp -= card_attack * 2
+##    if "Hearts" in played_card:
+         
 
     print("You have played: " + str(played_card))
     player.pop(user_selection - 1)
     hand -= 1
     
     print("Boss does " + str(boss_attack) + " damage.")
-
-##    while discard_selection < boss_attack:
-##        print("Choose which card to discard to take damage.")
-##        card = 0
-##        while card != hand:
-##            #The +1 here is to make it easier to read (so that cards 1 through 8 aren't printed as 0 through 7)
-##            print(str(card + 1) + ":" + str(player[card]))
-##            card += 1
-##        discard_selection = int(input())
-##        discard.append(player[discard_selection])
-##        player.pop(discard_selection - 1)
-##        hand -= 1
+    boss_damage = boss_attack
+ 
+    while boss_damage > discard_value:
+        print("Choose which card to discard to take damage.")
+        card = 0
+        while card != hand:
+            #The +1 here is to make it easier to read (so that cards 1 through 8 aren't printed as 0 through 7)
+            print(str(card + 1) + ":" + str(player[card]))
+            card += 1
+        user_selection = int(input("Enter card to discard: "))
+        played_card = player[user_selection - 1]
+        if "A" in played_card:
+            discard_value += 1  
+        if "2" in played_card:
+            discard_value += 2
+        if "3" in played_card:
+            discard_value += 3
+        if "4" in played_card:
+            discard_value += 4
+        if "5" in played_card:
+            discard_value += 5
+        if "6" in played_card:
+            discard_value += 6
+        if "7" in played_card:
+            discard_value += 7
+        if "8" in played_card:
+            discard_value += 8
+        if "9" in played_card:
+            discard_value += 9
+        if "10" in played_card:
+            discard_value += 10
+        if "Jack" in played_card:
+            discard_value += 10
+        if "Queen" in played_card:
+            discard_value += 15
+        if "King" in played_card:
+            discard_value += 20
+        discard.append(player[user_selection])
+        player.pop(user_selection - 1)
+        hand -= 1
+        if boss_damage > discard_value:
+            print("Remaining value to discard is: " + str(boss_damage - discard_value))
 
     print("Tavern deck: " + str(len(tavern)))
     print("Discard pile: " + str(len(discard)))
+
+    discard_value = 0
     
     if boss_attack < 0:
         boss_attack = 0
